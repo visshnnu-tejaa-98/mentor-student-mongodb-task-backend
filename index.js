@@ -133,5 +133,9 @@ app.delete('/:id', async (req, res) => {
 		console.log(error);
 		res.json({ message: 'Something went wrong' });
 	}
+
+	app.get('*', (req, res) => {
+		res.sendFile(path.join(__dirname + '/client/build/index.html'));
+	});
 });
 app.listen(process.env.PORT || port, () => console.log(`server started on port : ${port}`));
